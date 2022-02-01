@@ -31,6 +31,7 @@
 
       header,
       footer {
+        padding: 10px 0;
         border: solid black 1px;
       }
 
@@ -75,9 +76,43 @@
       </section>
     </main>
     <footer>This is the footer</footer>
-    <hr />
     <script>
-      document.querySelector();
+      const headtitel = document.querySelector("h1");
+      console.log(headtitel.textContent);
+
+      const undertitel = document.querySelector("h2");
+      console.log(undertitel.textContent);
+
+      const artikel1 = document.querySelector("article:nth-child(1)");
+      console.log(artikel1);
+
+      const billede1 = document.querySelector("article:nth-child(1) img");
+      console.log(billede1);
+
+      const lilleoverskrift1 = document.querySelector(
+        "article:nth-child(1) h3"
+      );
+      console.log(lilleoverskrift1);
+
+      const paragraf1 = document.querySelector("article:nth-child(1) p");
+      console.log(paragraf1);
+
+      const artikel2 = document.querySelector("article:nth-child(2)");
+      console.log(artikel2);
+
+      const billede2 = document.querySelector("article:nth-child(2) img");
+      console.log(billede2);
+
+      const lilleoverskrift2 = document.querySelector(
+        "article:nth-child(2) h3"
+      );
+      console.log(lilleoverskrift2);
+
+      const paragraf2 = document.querySelector("article:nth-child(2) p");
+      console.log(paragraf2);
+
+      const footer = document.querySelector("footer");
+      console.log(footer.textContent);
     </script>
   </body>
 </html>
