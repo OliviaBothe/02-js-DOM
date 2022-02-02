@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <style>
+      /* Mobile first */
+
+      img {
+        width: 100%;
+      }
+
+      h1,
+      footer {
+        text-align: center;
+      }
+
+      .article1 {
+        border: solid black 1px;
+        margin-bottom: 20px;
+      }
+
+      .article2 {
+        border: solid black 1px;
+        margin-bottom: 20px;
+      }
+
+      header,
+      footer {
+        padding: 10px 0;
+        border: solid black 1px;
+      }
+
+      /* Desktop */
+
+      section {
+        max-width: 1100px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Titel</h1>
+    </header>
+
+    <main>
+      <h2>Undertitel</h2>
+      <section>
+        <article class="article1">
+          <img src="vand2.jpg" alt="et" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+            suscipit, voluptates fugiat eum perspiciatis accusamus numquam,
+            saepe sunt animi magni neque doloremque voluptas debitis excepturi
+            dolorum consequuntur explicabo ducimus ex!
+          </p>
+        </article>
+        <article class="article2">
+          <img src="vand2.jpg" alt="to" />
+          <h3>Article 2</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+            suscipit, voluptates fugiat eum perspiciatis accusamus numquam,
+            saepe sunt animi magni neque doloremque voluptas debitis excepturi
+            dolorum consequuntur explicabo ducimus ex!
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>This is the footer</footer>
+    <script>
+      const headtitel = document.querySelector("h1");
+      headtitel.textContent = "Ny Titel";
+      console.log(headtitel.textContent);
+
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        console.log("dom er loaded");
+
+        const undertitel = document.querySelector("h2");
+        undertitel.textContent = "Ny Undertitel";
+        console.log(undertitel.textContent);
+
+        /* artikel 1 */
+
+        const artikel1 = document.querySelector("article:nth-child(1)");
+        console.log(artikel1);
+
+        const billede1 = document.querySelector("article:nth-child(1) img");
+        console.log(billede1);
+        billede1.src = "vand1.jpg";
+        billede1.alt = "bølgen blå";
+
+        let element = document.querySelector("article:nth-child(1) img");
+        element.addEventListener("click", doSomething);
+
+        function doSomething() {
+          billede1.src =
+            "https://placeimg.com/640/480/nature" +
+            Math.round(Math.random() * 10);
+        }
+
+        let mainSection = document.querySelector("section");
+        /* nyt article element */
+        let newArticle = document.createElement("article");
+        /* nyt H3 element */
+        let overskrift = document.createElement("h3");
+        /* tekst til overskriften */
+        let overskriftText = document.createTextNode("Article 3");
+        // indsæt teksten i overskrift
+        overskrift.appendChild(overskriftText);
+        // tilføj overskrift til article
+        newArticle.appendChild(overskrift);
+        // tilføj article til section
+        mainSection.appendChild(newArticle);
+
+        const lilleoverskrift1 = document.querySelector(
+          "article:nth-child(1) h3"
+        );
+        lilleoverskrift1.textContent = "Ny h3'er";
+        console.log(lilleoverskrift1);
+
+        const paragraf1 = document.querySelector("article:nth-child(1) p");
+        paragraf1.textContent = "Nyt paragraf her";
+        console.log(paragraf1);
+
+        /* artikel 2 */
+
+        const artikel2 = document.querySelector("article:nth-child(2)");
+        console.log(artikel2);
+
+        const billede2 = document.querySelector("article:nth-child(2) img");
+        console.log(billede2);
+        billede2.src = "vand1.jpg";
+        billede2.alt = "bølgen blå";
+
+        const lilleoverskrift2 = document.querySelector(
+          "article:nth-child(2) h3"
+        );
+        lilleoverskrift2.innerHTML = "Ny <i>h3'er</i>";
+        console.log(lilleoverskrift2);
+
+        const paragraf2 = document.querySelector("article:nth-child(2) p");
+        paragraf2.innerHTML = "Nyt <i>paragraf</i> her";
+        console.log(paragraf2);
+
+        const footer = document.querySelector("footer");
+        footer.innerHTML = "<i>This is the footer</i>";
+        console.log(footer.textContent);
+      }
+    </script>
+  </body>
+</html>
